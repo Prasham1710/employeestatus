@@ -1,16 +1,22 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react'
+import { useNavigate,useParams } from 'react-router-dom';
+import uuid from 'react-uuid';
 import { useForm } from '../hooks/useForm';
+import { addEmployee} from '../services/localstorage'
 export const EmployeeForm = () => {
     const navigate = useNavigate();
-    const { inputValues, handleInputChange, resetForm } = useForm({
+    
+    const { id } = useParams();
+    const { inputValues, handleInputChange, resetForm,setForm } = useForm({
       name: "",
       email: "",
       address: "",
       phone: "",
     });
+    
     const handleSubmit = (e) => {
         e.preventDefault();
+        addEmployee({ id: uuid(), ...inputValues });
         console.log(inputValues);
         resetForm();
     }
