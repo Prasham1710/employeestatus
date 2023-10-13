@@ -4,9 +4,11 @@ import { getListEmployees } from '../services/localstorage';
 
 export const EmployeeList = () => {
   const [employees, setEmployees] = useState([]);
+
   useEffect(() => {
     setEmployees(getListEmployees());
   }, []);
+
   return (
     <div>
       <h1 className="my-5 text-center">Manage Employees</h1>
@@ -39,4 +41,4 @@ export const EmployeeList = () => {
       )}
     </div>
   );
-}
+};
