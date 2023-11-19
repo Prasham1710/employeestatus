@@ -3,7 +3,7 @@ import Navbar from "./components/Navbar";
 import { Route, Routes } from "react-router-dom";
 import { EmployeeForm } from "./components/EmployeeForm";
 import { EmployeeList } from "./components/EmployeeList";
-
+import { Toaster } from "react-hot-toast";
 export const App = () => {
   return (
     <div>
@@ -15,6 +15,7 @@ export const App = () => {
         <Route path="/edit-employee/:id" element={<EmployeeForm/>} />
       </Routes>
       </div>
+      <Toaster/>
     </div>
   )
 }
